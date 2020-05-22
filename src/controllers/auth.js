@@ -13,11 +13,11 @@ router.post('/sign-up', async (req, res) => {
   const { email, password } = req.body;
 
   const user = await Account.findOne({ where: { email } });
-  if (user) return res.json('User already exists');
+  if (user) return res.jsonBadRequest(null, 'Account already exists.');
 
   let hash = bcrypt.hashSync(password, saltRounds);
   const result = await Account.create({ email, password: hash });
-  return res.json(result);
+  return res.jsonOK(result, 'Account created successfully.');
 });
 
 module.exports = router;
