@@ -13,9 +13,9 @@ const getCustomMessage = (item, key) => {
   return customMessage || item.message;
 };
 
-const getValidationError = (error, path) => {
-  const validationError = {};
-  if (!error || !error.details) return validationError;
+const getValidationErrors = (error, path) => {
+  const validationErrors = {};
+  if (!error || !error.details) return validationErrors;
 
   error.details.map((item) => {
     const key = item.context.key;
@@ -29,4 +29,5 @@ const getValidationError = (error, path) => {
 module.exports = {
   getMessageByPath,
   getCustomMessage,
+  getValidationErrors,
 };

@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      jwt_version: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        defaultValue: 0,
+      },
     },
     options,
   );

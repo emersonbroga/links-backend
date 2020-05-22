@@ -1,6 +1,7 @@
 {
   "account": {
     "signup": {
+      "success": "Cadastro efetuado com sucesso.",
       "email": {
         "exists": "Email já cadastrado.",
         "string": {
@@ -18,6 +19,15 @@
         "any": {
           "required": "Senha e confirmação de senha não conferem",
           "only": "Senha e confirmação de senha não conferem"
+        }
+      }
+    },
+    "signin": {
+      "invalid": "Credenciais inválidas.",
+      "success": "Login efetuado com sucesso.",
+      "password": {
+        "string": {
+          "empty": "Credenciais inválidas."
         }
       }
     }
