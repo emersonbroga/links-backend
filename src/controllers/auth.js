@@ -13,9 +13,6 @@ router.post('/sign-in', async (req, res) => {
 router.post('/sign-up', acountSignUp, async (req, res) => {
   const { email, password } = req.body;
 
-  const user = await Account.findOne({ where: { email } });
-  if (user) return res.jsonBadRequest(null, 'Account already exists.');
-
   let hash = bcrypt.hashSync(password, saltRounds);
   const result = await Account.create({ email, password: hash });
   return res.jsonOK(result, 'Account created successfully.');
