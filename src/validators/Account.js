@@ -8,7 +8,7 @@ const rules = {
   password_confirmation: Joi.any().valid(Joi.ref('password')).required(),
 };
 
-const acountSignIn = async (req, res, next) => {
+const accountSignIn = async (req, res, next) => {
   const { email, password } = req.body;
   const schema = Joi.object({
     email: rules.email,
@@ -24,7 +24,7 @@ const acountSignIn = async (req, res, next) => {
   next();
 };
 
-const acountSignUp = async (req, res, next) => {
+const accountSignUp = async (req, res, next) => {
   const { email, password, password_confirmation } = req.body;
   const schema = Joi.object({
     email: rules.email,
@@ -45,4 +45,4 @@ const acountSignUp = async (req, res, next) => {
   next();
 };
 
-module.exports = { acountSignIn, acountSignUp };
+module.exports = { accountSignIn, accountSignUp };
