@@ -6,7 +6,7 @@ const STATUS_NOT_FOUND = 404; // 404 - The requested item doesn't exist.
 const STATUS_SERVER_ERROR = 500; // 500 - Server error.
 
 const jsonOK = function (data, message, metadata) {
-  var status = STATUS_OK;
+  const status = STATUS_OK;
   message = message ? message : 'Successful request.';
   metadata = metadata ? metadata : {};
   data = data ? data : [];
@@ -17,7 +17,7 @@ const jsonOK = function (data, message, metadata) {
 };
 
 const jsonBadRequest = function (data, message, metadata) {
-  var status = STATUS_BAD_REQUEST;
+  const status = STATUS_BAD_REQUEST;
 
   message = message ? message : 'Bad request.';
   metadata = metadata ? metadata : {};
@@ -29,7 +29,7 @@ const jsonBadRequest = function (data, message, metadata) {
 };
 
 const jsonUnauthorized = function (data, message, metadata) {
-  var status = STATUS_UNAUTHORIZED;
+  const status = STATUS_UNAUTHORIZED;
 
   message = message ? message : 'Unauthorized.';
   metadata = metadata ? metadata : {};
@@ -41,7 +41,7 @@ const jsonUnauthorized = function (data, message, metadata) {
 };
 
 const jsonNotFound = function (data, message, metadata) {
-  var status = STATUS_NOT_FOUND;
+  const status = STATUS_NOT_FOUND;
 
   message = message ? message : 'Resource not found.';
   metadata = metadata ? metadata : {};
