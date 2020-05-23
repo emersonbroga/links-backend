@@ -1,28 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-  const options = {
-    underscored: '1',
-    freezeTableName: '1',
-    tableName: 'account',
-  };
-
-  const Account = sequelize.define(
-    'Account',
-    {
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      jwt_version: {
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-      },
+  const Account = sequelize.define('Account', {
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    options,
-  );
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    jwtVersion: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      defaultValue: 0,
+    },
+  });
 
   Account.prototype.toJSON = function () {
     let values = { ...this.get() };
@@ -30,5 +20,10 @@ module.exports = (sequelize, DataTypes) => {
     return values;
   };
 
+  Account.associate = (models) => {
+    Account.hasMany(models.Link, {
+      foreignKey: 'accountId',
+    });
+  };
   return Account;
 };

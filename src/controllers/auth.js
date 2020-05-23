@@ -16,7 +16,7 @@ router.post('/sign-in', accountSignIn, async (req, res) => {
   if (!match) return res.jsonBadRequest(null, null, { errors: { email: error } });
 
   const token = generateJwt({ id: account.id });
-  const refreshToken = generateRefreshJwt({ id: account.id, version: account.version });
+  const refreshToken = generateRefreshJwt({ id: account.id, version: account.jwtVersion });
   const success = getMessageByPath('account.signin.success');
   return res.jsonOK(account, success, { token, refreshToken });
 });
@@ -27,7 +27,7 @@ router.post('/sign-up', accountSignUp, async (req, res) => {
   let hash = bcrypt.hashSync(password, saltRounds);
   const account = await Account.create({ email, password: hash });
   const token = generateJwt({ id: account.id });
-  const refreshToken = generateRefreshJwt({ id: account.id, version: account.jwt_version });
+  const refreshToken = generateRefreshJwt({ id: account.id, version: account.jwtVersion });
   const success = getMessageByPath('account.signup.success');
   return res.jsonOK(account, success, { token, refreshToken });
 });

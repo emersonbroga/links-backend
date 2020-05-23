@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn('account', 'jwt_version', {
+    return queryInterface.addColumn('account', 'jwtVersion', {
       type: Sequelize.INTEGER.UNSIGNED,
       after: 'password',
       defaultValue: 0,
@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn('account', 'jwt_version');
+    return queryInterface.removeColumn('account', 'jwtVersion');
   },
 };
