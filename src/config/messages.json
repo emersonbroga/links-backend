@@ -4,6 +4,14 @@
   "response.json_unauthorized": "Não autorizado.",
   "response.json_not_found": "Não encontrado.",
   "response.json_server_error": "Erro no servidor.",
+
+  "account.signin.invalid": "Credenciais inválidas.",
+  "account.signin.success": "Login efetuado com sucesso.",
+  "account.signin.email.string.empty": "Email é obrigatorio.",
+  "account.signin.email.string.email": "Email não é válido.",
+  "account.signin.password.string.empty": "Senha é obrigatorio.",
+  "account.signin.password.string.pattern.base": "Senha deve conter entre 3 a 30 caractereres e incluir letras e números",
+
   "account.signup.email_exists": "Email já cadastrado.",
   "account.signup.success": "Cadastro efetuado com sucesso.",
   "account.signup.email.string.empty": "Email é obrigatorio.",
