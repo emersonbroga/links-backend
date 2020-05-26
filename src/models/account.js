@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    jwtVersion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
   });
 
   Account.associate = (models) => {
