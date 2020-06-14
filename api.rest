@@ -1,0 +1,66 @@
+@baseUrl = http://localhost:3001
+@contentType = application/json
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkxMTc4MzQ2LCJleHAiOjE1OTExODAxNDZ9._HptOCBVJoY9df2DJ5_XcbaksIYxt4kEv5c_jvr6p_o
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidmVyc2lvbiI6MCwiaWF0IjoxNTkxMTgyMzc0LCJleHAiOjE1OTM3NzQzNzR9.YwvGgDn5Cxmzr-HnoTpS-WyvjUqqw43OFE0SZdWl1wg
+### Create a Account 
+POST {{baseUrl}}/auth/sign-up 
+Content-Type: {{contentType}}
+
+{
+  "email": "emerson1@emersonbroga.com",
+  "password": "123456",
+  "password_confirmation": "123456"
+}
+
+### Sign in 
+POST {{baseUrl}}/auth/sign-in 
+Content-Type: {{contentType}}
+
+{
+  "email": "emerson1@emersonbroga.com",
+  "password": "123456"
+}
+
+### Refresh
+POST {{baseUrl}}/auth/refresh
+Content-Type: {{contentType}}
+Authorization: Bearer {{refreshToken}}
+
+### List Links
+GET {{baseUrl}}/link
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+
+### Create Link
+POST {{baseUrl}}/link
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "label": "Meu site 3",
+  "url": "https://emersonbroga.com",
+  "isSocial": false,
+  "order": 0,
+  "icon": "https://emersonbroga.com/image.png"
+}
+
+### Get a link by Id
+GET {{baseUrl}}/link/2
+Content-Type: {{contentType}}
+
+### Update a Link
+PUT {{baseUrl}}/link/1
+Content-Type: {{contentType}}
+
+{
+  "label": "Meu novo site",
+  "url": "https://facebook.com",
+  "isSocial": true
+}
+
+
+### Delete a Link
+DELETE {{baseUrl}}/link/3
+Content-Type: {{contentType}}
