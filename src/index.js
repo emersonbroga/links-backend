@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('./models');
 const path = require('path');
 
@@ -9,6 +10,7 @@ const linkController = require('./controllers/link');
 
 const app = express();
 
+app.use(cors());
 app.use(response);
 app.use(jwt);
 app.use(express.json());

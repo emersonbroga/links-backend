@@ -20,7 +20,9 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const accountId = req.accountId;
-  const { label, url, icon, isSocial, order } = req.body;
+  const { label, url, isSocial } = req.body;
+  const icon = 'icon';
+  const order = 0;
   const link = await Link.create({
     label,
     url,
@@ -56,7 +58,7 @@ router.delete('/:id', async (req, res) => {
   const link = await Link.findOne({ where: { accountId, id } });
   if (!link) return res.jsonNotFound();
   await link.destroy();
-  return res.jsonOK();
+  return res.jsonOK(link);
 });
 
 module.exports = router;

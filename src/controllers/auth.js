@@ -33,16 +33,17 @@ router.post('/sign-up', accountSignUp, async (req, res) => {
 });
 
 router.post('/refresh', async (req, res) => {
-  const { token } = req.body;
+  let token = req.headers['x-access-token'] || req.headers['authorization'];
+  token = token ? token.slice(7, token.length) : null;
   try {
     const decoded = verifyRefreshJwt(token);
     const account = await Account.findByPk(decoded.id);
 
-    if (!account) return res.jsonUnauthorized(null, 'Invalid token.');
+    if (!account) return res.jsonUnauthorized(null, 'Invalid refresh token.');
 
     const { id, jwtVersion } = account;
     if (decoded.version !== jwtVersion) {
-      return res.jsonUnauthorized(null, 'Invalid token.');
+      return res.jsonUnauthorized(null, 'Invalid refresh token.');
     }
 
     const meta = {
@@ -51,7 +52,7 @@ router.post('/refresh', async (req, res) => {
     };
     return res.jsonOK(null, null, meta);
   } catch (error) {
-    return res.jsonUnauthorized(null, 'Invalid token.');
+    return res.jsonUnauthorized(null, 'Invalid refresh token.');
   }
 });
 
