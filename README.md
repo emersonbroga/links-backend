@@ -75,3 +75,5 @@ https://github.com/thitoribeiro/webapp-maratonajs-emersonbroga
 
 https://github.com/thiagocdn/MaratonaJS-Javascript-NodeJS-ReactJS
 
+https://github.com/zmmarina/LinkManager
+
