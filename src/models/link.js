@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const Link = (sequelize, DataTypes) => {
   const Link = sequelize.define('Link', {
     label: {
       type: DataTypes.STRING,
@@ -25,3 +25,4 @@ module.exports = (sequelize, DataTypes) => {
 
   return Link;
 };
+export default Link;

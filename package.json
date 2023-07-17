@@ -1,6 +1,7 @@
 {
-  "name": "links-backend",
+  "name": "mkt.emersonbroga.com",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,13 +11,21 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
+    "dotenv": "^16.3.1",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.1.0",
-    "nodemon": "^2.0.4",
-    "sequelize": "^5.21.10"
+    "jsonwebtoken": "^9.0.1",
+    "mysql2": "^3.5.1",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.32.1"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 120
   }
 }

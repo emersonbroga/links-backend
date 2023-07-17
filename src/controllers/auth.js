@@ -1,9 +1,11 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const { Account } = require('../models');
-const { accountSignUp, accountSignIn } = require('../validators/account');
-const { getMessage } = require('../helpers/validator');
-const { generateJwt, generateRefreshJwt, verifyRefreshJwt, getTokenFromHeaders } = require('../helpers/jwt');
+import express from 'express';
+import bcrypt from 'bcrypt';
+import db from '../models/index.js';
+import { accountSignUp, accountSignIn } from '../validators/account.js';
+import { getMessage } from '../helpers/messages.js';
+import { generateJwt, generateRefreshJwt, verifyRefreshJwt, getTokenFromHeaders } from '../helpers/jwt.js';
+
+const { Account } = db;
 
 const router = express.Router();
 
@@ -17,9 +19,15 @@ router.post('/sign-in', accountSignIn, async (req, res) => {
   if (!match) return res.jsonBadRequest(null, getMessage('account.signin.invalid'));
 
   const token = generateJwt({ id: account.id });
-  const refreshToken = generateRefreshJwt({ id: account.id, version: account.jwtVersion });
+  const refreshToken = generateRefreshJwt({
+    id: account.id,
+    version: account.jwtVersion,
+  });
 
-  return res.jsonOK(account, getMessage('account.signin.success'), { token, refreshToken });
+  return res.jsonOK(account, getMessage('account.signin.success'), {
+    token,
+    refreshToken,
+  });
 });
 
 router.post('/sign-up', accountSignUp, async (req, res) => {
@@ -32,9 +40,15 @@ router.post('/sign-up', accountSignUp, async (req, res) => {
   const newAccount = await Account.create({ email, password: hash });
 
   const token = generateJwt({ id: newAccount.id });
-  const refreshToken = generateRefreshJwt({ id: newAccount.id, version: newAccount.jwtVersion });
+  const refreshToken = generateRefreshJwt({
+    id: newAccount.id,
+    version: newAccount.jwtVersion,
+  });
 
-  return res.jsonOK(newAccount, getMessage('account.signup.success'), { token, refreshToken });
+  return res.jsonOK(newAccount, getMessage('account.signup.success'), {
+    token,
+    refreshToken,
+  });
 });
 
 router.post('/refresh', async (req, res) => {
@@ -62,4 +76,4 @@ router.post('/refresh', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

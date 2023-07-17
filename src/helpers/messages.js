@@ -1,7 +1,5 @@
-const messages = require('../config/messages.json');
+import messages from '../config/messages.json' assert { type: 'json' };
 
-const getMessage = (path) => {
+export const getMessage = (path) => {
   return messages[path] || null;
 };
-
-module.exports = { getMessage };

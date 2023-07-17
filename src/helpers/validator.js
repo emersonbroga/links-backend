@@ -1,6 +1,6 @@
-const { getMessage } = require('./messages');
+import { getMessage } from './messages.js';
 
-const getValidatorError = (error, messagePath) => {
+export const getValidatorError = (error, messagePath) => {
   if (!error) return null;
 
   const errorMessages = {};
@@ -19,5 +19,3 @@ const getValidatorError = (error, messagePath) => {
 
   return errorMessages;
 };
-
-module.exports = { getValidatorError, getMessage };

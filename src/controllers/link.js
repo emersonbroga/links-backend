@@ -1,6 +1,8 @@
-const express = require('express');
-const { Link } = require('../models');
+import express from 'express';
+import db from '../models/index.js';
 const router = express.Router();
+
+const { Link } = db;
 
 router.get('/', async (req, res) => {
   const { accountId } = req;
@@ -55,4 +57,4 @@ router.delete('/:id', async (req, res) => {
   return res.jsonOK();
 });
 
-module.exports = router;
+export default router;

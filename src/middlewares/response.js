@@ -1,4 +1,4 @@
-const { getMessage } = require('../helpers/messages');
+import { getMessage } from '../helpers/messages.js';
 
 const TYPE_JSON = 'application/json';
 const STATUS_CODE_OK = 200;
@@ -66,4 +66,4 @@ const response = (req, res, next) => {
   next();
 };
 
-module.exports = response;
+export default response;

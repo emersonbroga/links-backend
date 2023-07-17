@@ -1,5 +1,5 @@
-const Joi = require('@hapi/joi');
-const { getValidatorError } = require('../helpers/validator');
+import Joi from '@hapi/joi';
+import { getValidatorError } from '../helpers/validator.js';
 
 const rules = {
   email: Joi.string().email().required(),
@@ -9,7 +9,7 @@ const rules = {
 
 const options = { abortEarly: false };
 
-const accountSignIn = (req, res, next) => {
+export const accountSignIn = (req, res, next) => {
   const { email, password } = req.body;
 
   const schema = Joi.object({
@@ -26,7 +26,7 @@ const accountSignIn = (req, res, next) => {
   next();
 };
 
-const accountSignUp = (req, res, next) => {
+export const accountSignUp = (req, res, next) => {
   const { email, password, password_confirmation } = req.body;
 
   const schema = Joi.object({
@@ -43,5 +43,3 @@ const accountSignUp = (req, res, next) => {
 
   next();
 };
-
-module.exports = { accountSignUp, accountSignIn };

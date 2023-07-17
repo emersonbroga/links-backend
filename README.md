@@ -25,8 +25,6 @@ Frontend: https://github.com/emersonbroga/links-frontend
 [![twitter.com/emersonbrogadev](https://github.com/emersonbroga/social-media-snippets/blob/master/static/twitter.png?raw=true)](https://emersonbroga.com/twitter)
 [![github.com/emersonbroga](https://github.com/emersonbroga/social-media-snippets/blob/master/static/github.png?raw=true)](https://emersonbroga.com/github)
 
-
-
 #### Maratona JS - Participantes que submeteram codigos
 
 ![MaratonaJS](http://s3.emerson.link/prints/2020-07-05-074937-06n3n.png)
@@ -77,11 +75,8 @@ https://github.com/thiagocdn/MaratonaJS-Javascript-NodeJS-ReactJS
 
 https://github.com/zmmarina/LinkManager
 
-
 #### Artigos
 
 https://www.linkedin.com/posts/zandramonteiro_minha-primeira-api-activity-6685425786519883776-o8Up/
 
 https://medium.com/@zandramonteiro/minha-primeira-api-c1e3b7f0b2da
-
-

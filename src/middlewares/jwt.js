@@ -1,4 +1,4 @@
-const { verifyJwt, getTokenFromHeaders } = require('../helpers/jwt');
+import { verifyJwt, getTokenFromHeaders } from '../helpers/jwt.js';
 
 const checkJwt = (req, res, next) => {
   const { url: path } = req;
@@ -21,4 +21,4 @@ const checkJwt = (req, res, next) => {
   }
 };
 
-module.exports = checkJwt;
+export default checkJwt;

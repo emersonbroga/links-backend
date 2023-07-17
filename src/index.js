@@ -1,11 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('./models');
-const response = require('./middlewares/response');
-const checkJwt = require('./middlewares/jwt');
+import express from 'express';
+import cors from 'cors';
+import db from './models/index.js';
+import response from './middlewares/response.js';
+import checkJwt from './middlewares/jwt.js';
 
-const authController = require('./controllers/auth');
-const linkController = require('./controllers/link');
+import authController from './controllers/auth.js';
+import linkController from './controllers/link.js';
 
 const app = express();
 

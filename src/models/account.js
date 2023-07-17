@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const Account = (sequelize, DataTypes) => {
   const Account = sequelize.define('Account', {
     email: {
       type: DataTypes.STRING,
@@ -27,3 +27,5 @@ module.exports = (sequelize, DataTypes) => {
 
   return Account;
 };
+
+export default Account;
